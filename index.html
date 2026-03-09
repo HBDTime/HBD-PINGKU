@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Effects Containers -->
+    <div id="stars-container"></div>
+    <div id="balloons-container"></div>
+
+    <!-- Background Music -->
+    <!-- You can replace the src with your own locally saved Happy Birthday mp3 -->
+    <audio id="bg-music" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Happy_Birthday_to_You.ogg" loop></audio>
+
+    <div class="main-container">
+        <!-- 1. ส่วนต้อนรับ (Welcome Section) -->
+        <header class="welcome-box glass-panel">
+            <h1 class="glow-text">🎉 Happy Birthday 🎉</h1>
+            <h2 class="name-text">[ใส่ชื่อเจ้าของวันเกิด]</h2>
+            <p class="date-text">🎂 [ใส่วันที่, เช่น 10 มีนาคม 2026] 🎂</p>
+        </header>
+
+        <!-- 4. สวิตซ์เพลง (Music Toggle) -->
+        <div class="music-controls glass-panel">
+            <label class="switch">
+                <input type="checkbox" id="music-toggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="music-label">🎵 เล่นเพลงสุขสันต์วันเกิด</span>
+        </div>
+
+        <!-- 2. แกลเลอรี่บรรยากาศ (Image Gallery) -->
+        <section class="gallery-section glass-panel">
+            <h3>📸 แกลเลอรี่แห่งความทรงจำ</h3>
+            <p class="hint">(แทนที่รูปภาพด้วยภาพจริงตามต้องการ)</p>
+            <div class="grid-gallery">
+                <!-- Image placeholders -->
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80" alt="Birthday Image 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1530103862676-de8892ebe619?w=400&q=80" alt="Birthday Image 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=400&q=80" alt="Birthday Image 3"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513151233888-efa9e623eee7?w=400&q=80" alt="Birthday Image 4"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Birthday Image 5"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&q=80" alt="Birthday Image 6"></div>
+            </div>
+        </section>
+
+        <!-- 3. ช่องส่งคำอวยพร (Wish Input Form) -->
+        <section class="wish-form-section glass-panel">
+            <h3>💌 ร่วมเขียนคำอวยพร</h3>
+            <form id="wish-form">
+                <input type="text" id="wish-name" placeholder="ชื่อของคุณ" required>
+                <textarea id="wish-message" rows="4" placeholder="เขียนคำอวยพรที่นี่..." required></textarea>
+                <button type="submit" class="submit-btn" id="submit-wish-btn">ส่งคำอวยพร 💖</button>
+            </form>
+            <div id="success-msg" class="success-msg hidden">ส่งคำอวยพรสำเร็จแล้ว!</div>
+        </section>
+
+        <!-- 6. ปุ่มของขวัญ (Gift Button) -->
+        <div class="gift-container">
+            <button id="gift-btn" class="gift-btn">
+                <span class="icon">🎁</span> ดูสิ มีใครอวยพรอะไรบ้าง
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal สำหรับแสดงคำอวยพร -->
+    <div id="wishes-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-btn">&times;</span>
+            <h2>กล่องของขวัญแห่งความระลึกถึง 🎁</h2>
+            <div id="wishes-list" class="wishes-list">
+                <!-- ข้อความอวยพรจะมาปรากฏที่นี่ -->
+                <p class="no-wishes">ยังไม่มีคำอวยพร เป็นคนแรกที่เริ่มเขียนสิ! 😊</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
