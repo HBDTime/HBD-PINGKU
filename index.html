@@ -20,8 +20,8 @@
         <!-- 1. ส่วนต้อนรับ (Welcome Section) -->
         <header class="welcome-box glass-panel">
             <h1 class="glow-text">🎉 Happy Birthday 🎉</h1>
-            <h2 class="name-text">[Pingkujang]</h2>
-            <p class="date-text">🎂 [1 May 2026] 🎂</p>
+            <h2 class="name-text">[ใส่ชื่อเจ้าของวันเกิด]</h2>
+            <p class="date-text">🎂 [ใส่วันที่, เช่น 10 มีนาคม 2026] 🎂</p>
         </header>
 
         <!-- 4. สวิตซ์เพลง (Music Toggle) -->
@@ -40,7 +40,7 @@
             <div class="grid-gallery">
                 <!-- Image placeholders -->
                 <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80" alt="Birthday Image 1"></div>
-                <div class="gallery-item"><img src="https://images-ext-1.discordapp.net/external/_zs2DQFWXqGYpNAvCwz5DfRO0LIQv2zruV4drT2gN5Q/https/iili.io/qJvTn2I.jpg?format=webp"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1530103862676-de8892ebe619?w=400&q=80" alt="Birthday Image 2"></div>
                 <div class="gallery-item"><img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=400&q=80" alt="Birthday Image 3"></div>
                 <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513151233888-efa9e623eee7?w=400&q=80" alt="Birthday Image 4"></div>
                 <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Birthday Image 5"></div>
@@ -54,7 +54,7 @@
             <form id="wish-form">
                 <input type="text" id="wish-name" placeholder="ชื่อของคุณ" required>
                 <textarea id="wish-message" rows="4" placeholder="เขียนคำอวยพรที่นี่..." required></textarea>
-                <button type="submit" class="submit-btn">ส่งคำอวยพร 💖</button>
+                <button type="submit" class="submit-btn" id="submit-wish-btn">ส่งคำอวยพร 💖</button>
             </form>
             <div id="success-msg" class="success-msg hidden">ส่งคำอวยพรสำเร็จแล้ว!</div>
         </section>
@@ -79,53 +79,6 @@
         </div>
     </div>
 
-   <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSy...",
-  authDomain: "bd-wish-c7848.firebaseapp.com",
-  projectId: "bd-wish-c7848",
-  storageBucket: "bd-wish-c7848.firebasestorage.app",
-  messagingSenderId: "470725558147",
-  appId: "1:470725558147:web:911bc5e14f49bfbfffc0b6"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-window.sendWish = async function () {
-  const name = document.getElementById("name").value;
-  const message = document.getElementById("message").value;
-
-  if (!name || !message) {
-    alert("กรอกชื่อและคำอวยพรก่อน");
-    return;
-  }
-
-  await addDoc(collection(db, "wishes"), {
-    name: name,
-    message: message
-  });
-
-  alert("ส่งคำอวยพรแล้ว 🎉");
-  loadWishes();
-}
-
-async function loadWishes() {
-  const querySnapshot = await getDocs(collection(db, "wishes"));
-  const list = document.getElementById("wishes-list");
-
-  list.innerHTML = "";
-
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    list.innerHTML += `<p><b>${data.name}</b>: ${data.message}</p>`;
-  });
-}
-
-loadWishes();
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
