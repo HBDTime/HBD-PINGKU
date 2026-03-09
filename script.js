@@ -2,12 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "APIKEYของคุณ",
-  authDomain: "ชื่อโปรเจค.firebaseapp.com",
-  projectId: "ชื่อโปรเจค",
-  storageBucket: "ชื่อโปรเจค.appspot.com",
-  messagingSenderId: "xxxx",
-  appId: "xxxx"
+  apiKey: "AIzaSyBE-NoC1TChFBfyP8huhuHH3lctjrot0vE",
+  authDomain: "bd-wish-c7848.firebaseapp.com",
+  projectId: "bd-wish-c7848",
+  storageBucket: "bd-wish-c7848.firebasestorage.app",
+  messagingSenderId: "470725558147",
+  appId: "1:470725558147:web:911bc5e14f49bfbfffc0b6"
 };
 
 const app = initializeApp(firebaseConfig);
