@@ -1,24 +1,16 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBE-NoC1TChFBfyP8huhuHH3lctjrot0vE",
-  authDomain: "bd-wish-c7848.firebaseapp.com",
-  projectId: "bd-wish-c7848",
-  storageBucket: "bd-wish-c7848.firebasestorage.app",
-  messagingSenderId: "470725558147",
-  appId: "1:470725558147:web:911bc5e14f49bfbfffc0b6",
-  measurementId: "G-41HZ73G4FC"
+  apiKey: "APIKEYของคุณ",
+  authDomain: "ชื่อโปรเจค.firebaseapp.com",
+  projectId: "ชื่อโปรเจค",
+  storageBucket: "ชื่อโปรเจค.appspot.com",
+  messagingSenderId: "xxxx",
+  appId: "xxxx"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default dummy wish or load from local storage if needed. We'll use memory for now.
     const wishes = [];
 
-   wishForm.addEventListener('submit', async (e) => {
+    wishForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const name = wishName.value.trim();
@@ -114,9 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (name && message) {
             await addDoc(collection(db, "wishes"), {
-            name: name,
-            message: message,
-            time: Date.now() });
+    name: name,
+    message: message,
+    time: Date.now()
+});
             
             // Clear form
             wishName.value = '';
@@ -135,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const giftBtn = document.getElementById('gift-btn');
     const closeBtn = document.querySelector('.close-btn');
 
-  async function renderWishes() {
+    async function renderWishes() {
 
     const querySnapshot = await getDocs(collection(db, "wishes"));
 
