@@ -52,9 +52,9 @@
         <section class="wish-form-section glass-panel">
             <h3>💌 ร่วมเขียนคำอวยพร</h3>
             <form id="wish-form">
-                <input type="text" id="wish-name" placeholder="ชื่อของคุณ" required>
-                <textarea id="wish-message" rows="4" placeholder="เขียนคำอวยพรที่นี่..." required></textarea>
-                <button type="submit" class="submit-btn" id="submit-wish-btn">ส่งคำอวยพร 💖</button>
+                <input type="text" id="name" placeholder="ชื่อของคุณ" required>
+                <textarea id="message" rows="4" placeholder="เขียนคำอวยพรที่นี่..." required></textarea>
+                <button type="button" onclick="sendWish()" class="submit-btn">ส่งคำอวยพร 💖</button>
             </form>
             <div id="success-msg" class="success-msg hidden">ส่งคำอวยพรสำเร็จแล้ว!</div>
         </section>
@@ -79,6 +79,53 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+   <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSy...",
+  authDomain: "bd-wish-c7848.firebaseapp.com",
+  projectId: "bd-wish-c7848",
+  storageBucket: "bd-wish-c7848.firebasestorage.app",
+  messagingSenderId: "470725558147",
+  appId: "1:470725558147:web:911bc5e14f49bfbfffc0b6"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.sendWish = async function () {
+  const name = document.getElementById("name").value;
+  const message = document.getElementById("message").value;
+
+  if (!name || !message) {
+    alert("กรอกชื่อและคำอวยพรก่อน");
+    return;
+  }
+
+  await addDoc(collection(db, "wishes"), {
+    name: name,
+    message: message
+  });
+
+  alert("ส่งคำอวยพรแล้ว 🎉");
+  loadWishes();
+}
+
+async function loadWishes() {
+  const querySnapshot = await getDocs(collection(db, "wishes"));
+  const list = document.getElementById("wishes-list");
+
+  list.innerHTML = "";
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    list.innerHTML += `<p><b>${data.name}</b>: ${data.message}</p>`;
+  });
+}
+
+loadWishes();
+</script>
 </body>
 </html>
