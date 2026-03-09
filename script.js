@@ -1,3 +1,25 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBE-NoC1TChFBfyP8huhuHH3lctjrot0vE",
+  authDomain: "bd-wish-c7848.firebaseapp.com",
+  projectId: "bd-wish-c7848",
+  storageBucket: "bd-wish-c7848.firebasestorage.app",
+  messagingSenderId: "470725558147",
+  appId: "1:470725558147:web:911bc5e14f49bfbfffc0b6",
+  measurementId: "G-41HZ73G4FC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. Music Controls ---
@@ -83,14 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default dummy wish or load from local storage if needed. We'll use memory for now.
     const wishes = [];
 
-    wishForm.addEventListener('submit', (e) => {
+   wishForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const name = wishName.value.trim();
         const message = wishMessage.value.trim();
 
         if (name && message) {
-            wishes.push({ name, message });
+            await addDoc(collection(db, "wishes"), {
+            name: name,
+            message: message,
+            time: Date.now() });
             
             // Clear form
             wishName.value = '';
@@ -109,30 +134,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const giftBtn = document.getElementById('gift-btn');
     const closeBtn = document.querySelector('.close-btn');
 
-    function renderWishes() {
-        if (wishes.length === 0) {
-            wishesListContainer.innerHTML = '<p class="no-wishes">ยังไม่มีคำอวยพร เป็นคนแรกที่เริ่มเขียนสิ! 😊</p>';
-            return;
-        }
+  async function renderWishes() {
 
-        wishesListContainer.innerHTML = '';
-        wishes.forEach(wish => {
-            const wishCard = document.createElement('div');
-            wishCard.classList.add('wish-card');
-            
-            const sender = document.createElement('div');
-            sender.classList.add('wish-sender');
-            sender.textContent = `จาก: ${wish.name}`;
+    const querySnapshot = await getDocs(collection(db, "wishes"));
 
-            const text = document.createElement('div');
-            text.classList.add('wish-text');
-            text.textContent = wish.message;
+    wishesListContainer.innerHTML = "";
 
-            wishCard.appendChild(sender);
-            wishCard.appendChild(text);
-            wishesListContainer.appendChild(wishCard);
-        });
+    if (querySnapshot.empty) {
+        wishesListContainer.innerHTML =
+        '<p class="no-wishes">ยังไม่มีคำอวยพร เป็นคนแรกที่เริ่มเขียนสิ! 😊</p>';
+        return;
     }
+
+    querySnapshot.forEach((doc) => {
+
+        const wish = doc.data();
+
+        const wishCard = document.createElement('div');
+        wishCard.classList.add('wish-card');
+
+        const sender = document.createElement('div');
+        sender.classList.add('wish-sender');
+        sender.textContent = `จาก: ${wish.name}`;
+
+        const text = document.createElement('div');
+        text.classList.add('wish-text');
+        text.textContent = wish.message;
+
+        wishCard.appendChild(sender);
+        wishCard.appendChild(text);
+
+        wishesListContainer.appendChild(wishCard);
+    });
+}
 
     giftBtn.addEventListener('click', () => {
         renderWishes();
