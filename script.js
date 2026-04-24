@@ -148,9 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 flippedSet.add(idx);
             }
 
-            flipProgress.textContent = `เปิดแล้ว ${flippedSet.size} / 6 ✨`;
-
-            if (flippedSet.size === 6 && !allFlippedOnce) {
+            flipProgress.textContent = `เปิดแล้ว ${flippedSet.size} / 12 ✨`;
+if (flippedSet.size === 12 && !allFlippedOnce) {
                 allFlippedOnce = true;
                 setTimeout(() => {
                     launchFireworks();
