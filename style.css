@@ -1,8 +1,8 @@
 :root {
     --primary-color: #ff6b6b;
     --secondary-color: #4ecdc4;
-    --background: linear-gradient(135deg, #6a0572 0%, #2b0a3d 100%);
-/* ม่วงสด + ม่วงเข้ม — สวยมากบนมือถือ */
+    --background: linear-gradient(135deg, #1a1a4e 0%, #0d0d2b 100%);
+/* กรมท่าเข้ม — สงบ สวยงาม */
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
     --text-light: #fefefe;
