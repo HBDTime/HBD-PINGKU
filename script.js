@@ -30,6 +30,70 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             bgMusic.pause();
         }
+      // --- 6. Gacha Card Flip ---
+const cards = document.querySelectorAll('.card-flip');
+const flipProgress = document.getElementById('flip-progress');
+const specialModal = document.getElementById('special-modal');
+const specialClose = document.getElementById('special-close');
+const fireworksContainer = document.getElementById('fireworks-container');
+
+let flippedSet = new Set();
+let allFlippedOnce = false;
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+
+        const idx = card.dataset.index;
+        if (card.classList.contains('flipped')) {
+            flippedSet.add(idx);
+        }
+        // ไม่ลบออกจาก set เมื่อพลิกกลับ
+        // (นับว่าเคยเปิดแล้ว)
+
+        flipProgress.textContent = `เปิดแล้ว ${flippedSet.size} / 6 ✨`;
+
+        // ถ้าเปิดครบ 6 ใบ (ครั้งแรก)
+        if (flippedSet.size === 6 && !allFlippedOnce) {
+            allFlippedOnce = true;
+            setTimeout(() => {
+                launchFireworks();
+                specialModal.style.display = 'block';
+            }, 600);
+        }
+    });
+});
+
+specialClose.addEventListener('click', () => {
+    specialModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === specialModal) {
+        specialModal.style.display = 'none';
+    }
+});
+
+function launchFireworks() {
+    const colors = ['#ff6b6b','#ffd700','#4ecdc4','#ff9ff3','#feca57','#a18cd1'];
+    const count = 60;
+
+    for (let i = 0; i < count; i++) {
+        setTimeout(() => {
+            const p = document.createElement('div');
+            p.classList.add('firework-particle');
+            p.style.left = `${20 + Math.random() * 60}%`;
+            p.style.top = `${20 + Math.random() * 40}%`;
+            p.style.background = colors[Math.floor(Math.random() * colors.length)];
+            const angle = Math.random() * 360;
+            const dist = 60 + Math.random() * 80;
+            p.style.setProperty('--dx', `${Math.cos(angle) * dist}px`);
+            p.style.setProperty('--dy', `${Math.sin(angle) * dist}px`);
+            fireworksContainer.appendChild(p);
+            setTimeout(() => p.remove(), 1000);
+        }, i * 30);
+    }
+}
     });
 
     // --- 2. Stars Animation (ดาววิบวับ) ---
