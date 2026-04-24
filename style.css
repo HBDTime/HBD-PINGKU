@@ -437,3 +437,169 @@ input:focus, textarea:focus {
     font-style: italic;
     font-size: 1.2rem;
 }
+/* ============================================
+   GACHA CARD FLIP SYSTEM
+   ============================================ */
+
+/* ลบ style เดิมของ .gallery-item img ที่มี hover scale
+   แล้วแทนด้วยของใหม่นี้ */
+
+.gallery-item {
+    overflow: visible; /* override เดิมที่เป็น hidden */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.card-flip {
+    height: 200px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    border-radius: 15px;
+}
+
+.card-flip.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid var(--glass-border);
+}
+
+.card-front img,
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Emoji ซ้อนบนหน้าการ์ด */
+.card-front-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.card-flip:hover .card-front-overlay {
+    background: rgba(0, 0, 0, 0.35);
+    font-size: 3.5rem;
+}
+
+/* หลังการ์ด — หมุน 180deg ไว้รอ */
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* Shimmer effect เมื่อเพิ่งพลิก */
+.card-flip.flipped .card-back::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 40%,
+        rgba(255,255,255,0.4) 50%,
+        transparent 60%
+    );
+    animation: shimmer 0.8s ease-out forwards;
+}
+
+@keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+/* Progress Text */
+.flip-progress {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #ffd1dc;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+/* ============================================
+   SPECIAL MODAL (เปิดครบ 6 ใบ)
+   ============================================ */
+
+.special-modal-content {
+    background: linear-gradient(135deg, #2b1041 0%, #4a1060 100%) !important;
+    color: var(--text-light) !important;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.special-msg-body {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.special-emoji {
+    font-size: 3.5rem;
+    animation: bounce 1s infinite;
+    margin-bottom: 15px;
+}
+
+.special-title {
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffaa00;
+    margin-bottom: 15px;
+}
+
+.special-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #ffd1dc;
+}
+
+/* Fireworks particles */
+.firework-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+    }
+}
+
+.fireworks-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
