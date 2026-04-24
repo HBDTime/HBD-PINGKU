@@ -1,8 +1,7 @@
 :root {
     --primary-color: #ff6b6b;
     --secondary-color: #4ecdc4;
-    --background: linear-gradient(135deg, #3d1c4e 0%, #1a0a2e 100%);
-/* ม่วงเข้ม — ใกล้เคียงเดิม แต่อุ่นขึ้น */
+    --bg-gradient: linear-gradient(135deg, #3d1c4e 0%, #1a0a2e 100%);
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
     --text-light: #fefefe;
