@@ -14,7 +14,7 @@
 
     <!-- Background Music -->
     <!-- You can replace the src with your own locally saved Happy Birthday mp3 -->
-    <audio id="bg-music" src="https://youtu.be/Q-Wn9NgiLrI" loop></audio>
+    <audio id="bg-music" src="" loop></audio>
 
     <div class="main-container">
         <!-- 1. ส่วนต้อนรับ (Welcome Section) -->
@@ -33,20 +33,95 @@
             <span class="music-label">🎵 เล่นเพลงสุขสันต์วันเกิด</span>
         </div>
 
-        <!-- 2. แกลเลอรี่บรรยากาศ (Image Gallery) -->
-        <section class="gallery-section glass-panel">
-            <h3>📸 แกลเลอรี่แห่งความทรงจำ</h3>
-            <p class="hint">(แทนที่รูปภาพด้วยภาพจริงตามต้องการ)</p>
-            <div class="grid-gallery">
-                <!-- Image placeholders -->
-                <div class="gallery-item"><img src="https://iili.io/B4ZQ0R2.jpg="Birthday Image 1"></div>
-                <div class="gallery-item"><img src="https://iili.io/B4Zm24e.jpg="Birthday Image 2"></div>
-                <div class="gallery-item"><img src="https://iili.io/B4ZyT7a.png="Birthday Image 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513151233888-efa9e623eee7?w=400&q=80" alt="Birthday Image 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Birthday Image 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&q=80" alt="Birthday Image 6"></div>
+     <!-- 2. แกลเลอรี่แบบกาชา (Gacha Gallery) -->
+<section class="gallery-section glass-panel">
+    <h3>📸 แกลเลอรี่แห่งความทรงจำ</h3>
+    <p class="hint">กดการ์ดเพื่อเปิดเผยภาพความทรงจำ ✨</p>
+    <div class="grid-gallery">
+        <div class="gallery-item card-flip" data-index="0">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://images.unsplash.com/photo-1513151233888-efa9e623eee7?w=400&q=80" alt="card cover">
+                    <div class="card-front-overlay">🎁</div>
+                </div>
+                <div class="card-back">
+                    <img src="images/photo1.jpg" alt="ภาพที่ 1">
+                </div>
             </div>
-        </section>
+        </div>
+        <div class="gallery-item card-flip" data-index="1">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80" alt="card cover">
+                    <div class="card-front-overlay">🎀</div>
+                </div>
+                <div class="card-back">
+                    <img src="images/photo2.jpg" alt="ภาพที่ 2">
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item card-flip" data-index="2">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8892ebe619?w=400&q=80" alt="card cover">
+                    <div class="card-front-overlay">🌸</div>
+                </div>
+                <div class="card-back">
+                    <img src="images/photo3.jpg" alt="ภาพที่ 3">
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item card-flip" data-index="3">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=400&q=80" alt="card cover">
+                    <div class="card-front-overlay">⭐</div>
+                </div>
+                <div class="card-back">
+                    <img src="images/photo4.jpg" alt="ภาพที่ 4">
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item card-flip" data-index="4">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="card cover">
+                    <div class="card-front-overlay">🎵</div>
+                </div>
+                <div class="card-back">
+                    <img src="images/photo5.jpg" alt="ภาพที่ 5">
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item card-flip" data-index="5">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&q=80" alt="card cover">
+                    <div class="card-front-overlay">🎂</div>
+                </div>
+                <div class="card-back">
+                    <img src="images/photo6.jpg" alt="ภาพที่ 6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Progress indicator -->
+    <p class="flip-progress" id="flip-progress">เปิดแล้ว 0 / 6 ✨</p>
+</section>
+
+<!-- Special Message Modal (เปิดครบ 6 ใบ) -->
+<div id="special-modal" class="modal">
+    <div class="modal-content special-modal-content glass-panel">
+        <div class="fireworks-container" id="fireworks-container"></div>
+        <span class="close-btn" id="special-close">&times;</span>
+        <div class="special-msg-body">
+            <div class="special-emoji">🎉🎂🎉</div>
+            <h2 class="special-title">เปิดครบแล้ว!</h2>
+            <!-- แก้ข้อความพิเศษได้ที่นี่ -->
+            <p class="special-text">ขอบคุณที่เปิดทุกการ์ดนะ 💕<br>แต่ละภาพคือความทรงจำที่ล้ำค่ามากเลย<br>Happy Birthday มากๆ เลยนะ! 🥳</p>
+        </div>
+    </div>
+</div>
 
         <!-- 3. ช่องส่งคำอวยพร (Wish Input Form) -->
         <section class="wish-form-section glass-panel">
