@@ -196,13 +196,36 @@
                     <div class="special-emoji">🎉🎂🎉</div>
                     <h2 class="special-title">เปิดครบแล้ว!</h2>
                     <p class="special-text">ขอบคุณที่เปิดทุกการ์ดนะ 💕<br>แต่ละภาพคือความทรงจำที่ล้ำค่ามากเลย<br>Happy Birthday มากๆ เลยนะ! 🥳</p>
-                    <iframe 
-                        src="https://drive.google.com/file/d/1A70enIK45Xp6dYhF0vCOUB8MpsWDVEBt/preview" 
-                        width="100%" 
-                        height="240" 
-                        style="border-radius: 12px; margin-top: 20px; border: none;"
-                        allow="autoplay">
-                    </iframe>
+
+                    <button onclick="
+                        this.style.display='none';
+                        document.getElementById('special-video').style.display='block';
+                    " style="
+                        margin-top: 20px;
+                        padding: 14px 30px;
+                        background: linear-gradient(135deg, #ff9a9e, #fecfef);
+                        border: none;
+                        border-radius: 50px;
+                        font-family: 'Mali', cursive;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        color: #333;
+                        cursor: pointer;
+                        box-shadow: 0 4px 15px rgba(255,154,158,0.5);
+                        transition: transform 0.2s;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        🎬 ดูวีดิโอพิเศษ
+                    </button>
+
+                    <div id="special-video" style="display:none; margin-top: 15px;">
+                        <iframe 
+                            src="https://drive.google.com/file/d/1A70enIK45Xp6dYhF0vCOUB8MpsWDVEBt/preview" 
+                            width="100%" 
+                            height="240" 
+                            style="border-radius: 12px; border: none;"
+                            allow="autoplay">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
