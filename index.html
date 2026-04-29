@@ -185,6 +185,27 @@
             </div><!-- ปิด grid-gallery -->
 
             <p class="flip-progress" id="flip-progress">เปิดแล้ว 0 / 12 ✨</p>
+
+            <!-- ✅ ปุ่มเปิด special popup (ซ่อนอยู่ จะโชว์เมื่อเปิดครบ 12 ใบ) -->
+            <button id="open-special-btn" style="
+                display: none;
+                margin-top: 15px;
+                padding: 12px 28px;
+                background: linear-gradient(135deg, #ffd700, #ff9a9e);
+                border: none;
+                border-radius: 50px;
+                font-family: 'Mali', cursive;
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #333;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+                animation: bounce 1.5s infinite;
+                transition: transform 0.2s;
+            " onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                🎉 เปิดของขวัญพิเศษ!
+            </button>
+
         </section>
 
         <!-- Special Message Modal (เปิดครบ 12 ใบ) -->
