@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     musicToggle.addEventListener('change', () => {
         if (musicToggle.checked) {
+            bgMusic.currentTime = 0;
             bgMusic.play().catch(error => {
                 console.log('Audio playback failed:', error);
                 alert('โปรดคลิกที่ใดก็ได้บนหน้าเว็บก่อนเพื่อเล่นเพลง');
