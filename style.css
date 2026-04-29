@@ -358,6 +358,7 @@ input:focus, textarea:focus {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 10;
 }
 
 .close-btn:hover {
@@ -497,21 +498,28 @@ input:focus, textarea:focus {
 }
 
 /* ============================================
-   SPECIAL MODAL (เปิดครบ 6 ใบ)
+   SPECIAL MODAL (เปิดครบ 12 ใบ)
    ============================================ */
 
 .special-modal-content {
     background: linear-gradient(135deg, #2b1041 0%, #4a1060 100%) !important;
     color: var(--text-light) !important;
     text-align: center;
-    overflow: hidden;
+    /* แก้ไข: เปลี่ยนจาก overflow:hidden เป็น overflow-y:auto เพื่อให้ scroll ได้ */
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
+    /* แก้ไข: เพิ่ม max-height และ margin ให้ modal ไม่ชิดขอบ */
+    max-height: 90vh;
+    margin: 5% auto !important;
 }
 
 .special-msg-body {
     position: relative;
     z-index: 2;
     padding: 20px;
+    /* แก้ไข: เพิ่ม padding-bottom เพื่อให้วีดิโอมีพื้นที่เหลือด้านล่าง */
+    padding-bottom: 30px;
 }
 
 .special-emoji {
@@ -531,6 +539,16 @@ input:focus, textarea:focus {
     font-size: 1.3rem;
     line-height: 2;
     color: #ffd1dc;
+}
+
+/* แก้ไข: wrapper วีดิโอเพิ่ม margin-bottom กันปุ่ม control ถูกตัด */
+#special-video {
+    margin-bottom: 10px;
+}
+
+#special-video > div {
+    /* เพิ่ม padding-bottom พิเศษสำหรับ control bar ของ Google Drive player */
+    padding-top: calc(56.25% + 48px) !important;
 }
 
 .firework-particle {
