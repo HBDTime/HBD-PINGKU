@@ -149,14 +149,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             flipProgress.textContent = `เปิดแล้ว ${flippedSet.size} / 12 ✨`;
-if (flippedSet.size === 12 && !allFlippedOnce) {
+
+            // ✅ แก้ไข: ไม่เด้ง popup อัตโนมัติ แต่แสดงปุ่มแทน
+            if (flippedSet.size === 12 && !allFlippedOnce) {
                 allFlippedOnce = true;
                 setTimeout(() => {
                     launchFireworks();
-                    specialModal.style.display = 'block';
+                    const openSpecialBtn = document.getElementById('open-special-btn');
+                    if (openSpecialBtn) openSpecialBtn.style.display = 'inline-block';
                 }, 600);
             }
         });
+    });
+
+    // ✅ ปุ่มเปิด special modal
+    const openSpecialBtn = document.getElementById('open-special-btn');
+    openSpecialBtn.addEventListener('click', () => {
+        specialModal.style.display = 'block';
     });
 
     specialClose.addEventListener('click', () => {
