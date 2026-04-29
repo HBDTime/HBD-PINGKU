@@ -8,22 +8,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Effects Containers -->
     <div id="stars-container"></div>
     <div id="balloons-container"></div>
-
-    <!-- Background Music -->
     <audio id="bg-music" src="HBD1.mp3" loop></audio>
 
     <div class="main-container">
-        <!-- 1. ส่วนต้อนรับ (Welcome Section) -->
         <header class="welcome-box glass-panel">
             <h1 class="glow-text">🎉 Happy Birthday 🎉</h1>
             <h1 class="name-text">Pingku</h1>
             <p class="date-text">🎂 [1 MAY 2026] 🎂</p>
         </header>
 
-        <!-- 4. สวิตซ์เพลง (Music Toggle) -->
         <div class="music-controls glass-panel">
             <label class="switch">
                 <input type="checkbox" id="music-toggle">
@@ -32,161 +27,99 @@
             <span class="music-label">🎵 ได้เวลาบรรเลง 3 2 1 เริ่ม </span>
         </div>
 
-        <!-- 2. แกลเลอรี่แบบกาชา (Gacha Gallery) -->
         <section class="gallery-section glass-panel">
             <h3>📸 Gallery of Memories</h3>
             <p class="hint">ได้เวลาสุ่มกาชาแล้ว เลือกกดการ์ดที่ถูกใจได้เลย ✨</p>
             <div class="grid-gallery">
 
-                <!-- การ์ดที่ 1 -->
                 <div class="gallery-item card-flip" data-index="0">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/ZbrM7D6/image.png" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/zvGVtZ4/S-10657796.jpg" alt="ภาพที่ 1">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/d0XZ7KYJ/18.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/zvGVtZ4/S-10657796.jpg" alt="ภาพที่ 1"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 2 -->
                 <div class="gallery-item card-flip" data-index="1">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/mC4yKRCB/image.png" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/TBDmW92n/IMG-6391.png" alt="ภาพที่ 2">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/DDx3X4CV/19.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/TBDmW92n/IMG-6391.png" alt="ภาพที่ 2"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 3 -->
                 <div class="gallery-item card-flip" data-index="2">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/WWQ6D0YN/image.png" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/Fkm0g9R1/IMG-7711.jpg" alt="ภาพที่ 3">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/KcRJX6R8/20.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/Fkm0g9R1/IMG-7711.jpg" alt="ภาพที่ 3"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 4 -->
                 <div class="gallery-item card-flip" data-index="3">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/7xhhPfFc/image.png" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/yF0DT2tw/IMG-7511.jpg" alt="ภาพที่ 4">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/0jm1fcnh/21.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/yF0DT2tw/IMG-7511.jpg" alt="ภาพที่ 4"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 5 -->
                 <div class="gallery-item card-flip" data-index="4">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/8gnbmsby/image.png" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/23vYh1Mq/D24-F231-C-FDF0-41-BE-8-C5-B-C4775-C412409.jpg" alt="ภาพที่ 5">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/TBtdYBCY/22.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/23vYh1Mq/D24-F231-C-FDF0-41-BE-8-C5-B-C4775-C412409.jpg" alt="ภาพที่ 5"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 6 -->
                 <div class="gallery-item card-flip" data-index="5">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/8nntyXCv/image.png" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/8gF2J8j6/IMG-7524.jpg" alt="ภาพที่ 6">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/7dfWBGFb/23.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/8gF2J8j6/IMG-7524.jpg" alt="ภาพที่ 6"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 7 -->
                 <div class="gallery-item card-flip" data-index="6">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/CspqqRcc/20260312-213138.jpg" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/FbbKKzDd/IMG-2742.jpg" alt="ภาพที่ 7">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/9Hrqw1KB/2.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/FbbKKzDd/IMG-2742.jpg" alt="ภาพที่ 7"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 8 -->
                 <div class="gallery-item card-flip" data-index="7">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/Txy4hjQX/20260314-095958.jpg" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/67cZP5fH/IMG-9752.jpg" alt="ภาพที่ 8">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/35gw22xF/1.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/67cZP5fH/IMG-9752.jpg" alt="ภาพที่ 8"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 9 -->
                 <div class="gallery-item card-flip" data-index="8">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/pj7F8vKh/20260317-202609.jpg" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/R4gNmjXf/kidbaa.jpg" alt="ภาพที่ 9">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/GGZwmSS/3.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/R4gNmjXf/kidbaa.jpg" alt="ภาพที่ 9"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 10 -->
                 <div class="gallery-item card-flip" data-index="9">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/bR1SR3wQ/weverse-20260321002444.jpg" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/1Y0S9nc6/bacat.jpg" alt="ภาพที่ 10">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/Y7f8Q4QR/6.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/1Y0S9nc6/bacat.jpg" alt="ภาพที่ 10"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 11 -->
                 <div class="gallery-item card-flip" data-index="10">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/qMB1kFJC/weverse-20260321002428.jpg" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/nsBCpNHy/mixcute.jpg" alt="ภาพที่ 11">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/nMLHXvC2/5.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/nsBCpNHy/mixcute.jpg" alt="ภาพที่ 11"></div>
                     </div>
                 </div>
 
-                <!-- การ์ดที่ 12 -->
                 <div class="gallery-item card-flip" data-index="11">
                     <div class="card-inner">
-                        <div class="card-front">
-                            <img src="https://i.ibb.co/qLR65gst/20260328-092534.jpg" alt="card cover">
-                        </div>
-                        <div class="card-back">
-                            <img src="https://i.ibb.co/Y736fH4m/image.png" alt="ภาพที่ 12" style="object-fit: cover; object-position: center top; width: 100%; height: 100%;">
-                        </div>
+                        <div class="card-front"><img src="https://i.ibb.co/WNbYn7pg/4.png" alt="card cover"></div>
+                        <div class="card-back"><img src="https://i.ibb.co/Y736fH4m/image.png" alt="ภาพที่ 12" style="object-fit: cover; object-position: center top; width: 100%; height: 100%;"></div>
                     </div>
                 </div>
 
-            </div><!-- ปิด grid-gallery -->
+            </div>
 
             <p class="flip-progress" id="flip-progress">เปิดแล้ว 0 / 12 ✨</p>
 
-            <!-- ✅ ปุ่มเปิด special popup (ซ่อนอยู่ จะโชว์เมื่อเปิดครบ 12 ใบ) -->
             <button id="open-special-btn" style="
                 display: none;
                 margin-top: 15px;
@@ -205,10 +138,9 @@
             " onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
                 🎉 เปิดของขวัญพิเศษ!
             </button>
-
         </section>
 
-        <!-- Special Message Modal (เปิดครบ 12 ใบ) -->
+        <!-- Special Message Modal -->
         <div id="special-modal" class="modal">
             <div class="modal-content special-modal-content glass-panel">
                 <div class="fireworks-container" id="fireworks-container"></div>
@@ -239,9 +171,9 @@
                     </button>
 
                     <div id="special-video" style="display:none; margin-top: 15px;">
-                        <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden;">
-                            <iframe 
-                                src="https://drive.google.com/file/d/1A70enIK45Xp6dYhF0vCOUB8MpsWDVEBt/preview" 
+                        <div style="position: relative; width: 100%; padding-top: calc(56.25% + 48px); border-radius: 12px; overflow: hidden;">
+                            <iframe
+                                src="https://drive.google.com/file/d/1A70enIK45Xp6dYhF0vCOUB8MpsWDVEBt/preview"
                                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
                                 allow="autoplay">
                             </iframe>
@@ -251,7 +183,6 @@
             </div>
         </div>
 
-        <!-- 3. ช่องส่งคำอวยพร (Wish Input Form) -->
         <section class="wish-form-section glass-panel">
             <h3>💌 ร่วมเขียนคำอวยพร</h3>
             <form id="wish-form">
@@ -262,7 +193,6 @@
             <div id="success-msg" class="success-msg hidden">ส่งคำอวยพรสำเร็จแล้ว!</div>
         </section>
 
-        <!-- 6. ปุ่มของขวัญ (Gift Button) -->
         <div class="gift-container">
             <button id="gift-btn" class="gift-btn">
                 <span class="icon">🎁</span> ดูสิ มีใครอวยพรอะไรบ้าง
@@ -270,7 +200,6 @@
         </div>
     </div>
 
-    <!-- Modal สำหรับแสดงคำอวยพร -->
     <div id="wishes-modal" class="modal">
         <div class="modal-content glass-panel">
             <span class="close-btn">&times;</span>
